@@ -407,8 +407,30 @@ p.success{
 }
 /* end success styling toast */
 
+/* start info styling toast*/
+p.info{
+    color:black;
+    font-weight: bold;
+    background: rgb(244, 252, 201);
+    z-index: 2;
+    display: block;
+    width: 35%;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute; 
+    top: 10%; 
+    right: 15%;
+
+}
+/* end info toast styling */
+
 input:invalid{
     content:"*";
     border-color: red;
 }
 .required input:after { color: firebrick; }
+
+.hide{
+    visibility: hidden;
+    display: none;
+}

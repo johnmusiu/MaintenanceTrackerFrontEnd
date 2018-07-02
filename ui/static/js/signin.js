@@ -1,3 +1,5 @@
+import { base_url } from './helpers';
+
 // onclick listenerss for login request
 document.getElementById('btn-signin').addEventListener('click', signin);
 
@@ -7,9 +9,9 @@ document.getElementById('btn-signin').addEventListener('click', signin);
 function signin(e){
     e.preventDefault();
 
-    const url = "http://127.0.0.1:5000/api/v2/auth/login";
+    const endpoint = "/auth/login";
 
-    fetch(url, {
+    fetch(base_url + endpoint, {
         headers: {
             "content-type":"application/json"
         },
@@ -22,13 +24,14 @@ function signin(e){
     })
     .then(function(response){ return response.json();})
     .then(function(res){ 
-        console.log(res.message);
+        console.log(res['access-token']);
         if(res.message === "Login success, welcome!"){
-            localStorage.setItem('auth-token', res.auth_token);
-            if(res.role === 1)
+            localStorage.setItem("access-token", res['access-token']);
+        
+            if(res.role === "1")
                 location.href = "home-admin.html";
-            else if(res.role === 2)
-                location.href = "";
+            else if(res.role === "2")
+                location.href = "super-admin.html";
             else
                 location.href = "home-user.html";
 
