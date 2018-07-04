@@ -19,6 +19,7 @@ function signin (e) {
     .then(function (res) {
       if (res.message === 'Login success, welcome!') {
         localStorage.setItem('access-token', res['access-token'])
+        localStorage.setItem('message', res['message'])
 
         if (res.role === '1') {
           location.href = 'home-admin.html'
