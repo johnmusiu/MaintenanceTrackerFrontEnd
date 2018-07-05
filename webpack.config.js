@@ -10,8 +10,8 @@ module.exports = {
     // helpers: ['babel-polyfill','./ui/static/js/helpers.js'],
     // super_admin: ['babel-polyfill','./ui/static/js/super_admin.js'],
     signup: baseJsDir + 'signup.js',
+    userDashboard: baseJsDir + 'user_dashboard.js',
     signin: baseJsDir + 'signin.js'
-    // hello: ['babel-polyfill', './ui/static/js/hello.js']
     // form_validation: ['babel-polyfill','./ui/static/js/form_validation.js'],
   },
   output: {
