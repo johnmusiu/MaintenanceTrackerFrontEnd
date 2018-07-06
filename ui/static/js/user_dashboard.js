@@ -103,6 +103,8 @@ function toggleRequestForm () {
 }
 
 function populateReqTable (userRequests) {
+  const table = document.getElementsByTagName('tbody')[0]
+  table.innerHTML = ''
   Object.values(userRequests).forEach(request => {
     insertRequest(request)
   })
@@ -178,6 +180,7 @@ function editUserRequest (e) {
         responseBody => {
           if (responseBody.message === 'Maintenance request updated successfully.') {
             toast('info', responseBody.message)
+            document.getElementById('edit-request').classList.add('hide-form')
             getUserRequests()
           } else if (responseBody.message === 'Token is invalid!') {
             toast('error', 'Session expired, login again to continue.')

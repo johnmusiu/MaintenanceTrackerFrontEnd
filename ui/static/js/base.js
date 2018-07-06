@@ -1,3 +1,5 @@
+const baseUrl = 'http://127.0.0.1:5000/api/v2'
+
 function viewEditUserRequest () {
   // get table on page by htmltag, 0 gets obj of the first table in the page
   const table = document.getElementsByTagName('table')[0]
@@ -99,4 +101,73 @@ function createRow (table, rowIndex, row) {
   tdataDetails.innerHTML += `<p> Time requested: <strong>${rowData[5].innerText}</strong> </p>`
   tdataDetails.innerHTML += `<p> Description: <strong>${rowData[4].innerText}</strong> </p>`
   tdataDetails.innerHTML += `<p> Status: <strong>${rowData[7].innerText}</strong></p>`
+}
+
+function action (type) {
+  // get table on page by htmltag, 0 gets obj of the first table in the page
+  const table = document.getElementsByTagName('table')[0]
+  // from table obj get tr rows list
+  const rows = table.getElementsByTagName('tr')
+  // loop through rows list
+  for (var i = 1; i < rows.length; i++) {
+    // row object
+    var row = rows[i]
+    // Track with onclick(a row with a clicked event will trigger this)
+    row.onclick = function () {
+      let rowId = this.rowIndex
+      let rowClicked = rows[rowId]
+      let rowData = rowClicked.getElementsByTagName('td')
+
+      var endpoint
+
+      if (type === 'approve') {
+        endpoint = '/requests/' + rowData[0].innerText + '/approve'
+      } else if (type === 'disapprove') {
+        endpoint = '/requests/' + rowData[0].innerText + '/disapprove'
+      } else if (type === 'resolve') {
+        endpoint = '/requests/' + rowData[0].innerText + '/resolve'
+      }
+      // initialize request
+      let request = new Request(baseUrl + endpoint, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'access-token': localStorage.getItem('access-token')
+        },
+        mode: 'cors'
+      })
+
+      fetch(request).then(
+        response => {
+          response.json().then(
+            responseBody => {
+              if (responseBody.message === 'Request disapproved successfully' ||
+              responseBody.message === 'Request approved successfully' ||
+              responseBody.message === 'Request resolved successfully') {
+                toast('success', responseBody.message)
+                document.location.reload(false)
+              } else {
+                toast('error', 'Session expired, login again to continue.')
+                window.location = 'signin.html'
+              }
+            })
+        })
+    }
+  }
+}
+
+function toast (type, message) {
+  const toastMessage = document.createElement('P')
+  if (type === 'error') {
+    toastMessage.classList.add('error')
+  } else if (type === 'success') {
+    toastMessage.classList.add('success')
+  } else {
+    toastMessage.classList.add('info')
+  }
+
+  var response = document.createTextNode(message)
+
+  toastMessage.appendChild(response)
+  document.body.appendChild(toastMessage)
 }

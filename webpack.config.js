@@ -6,8 +6,7 @@ module.exports = {
   entry: {
     base: baseJsDir + 'base.js',
     slide_show: baseJsDir + 'slide_show.js',
-    // admin: ['babel-polyfill','./ui/static/js/admin.js'],
-    // helpers: ['babel-polyfill','./ui/static/js/helpers.js'],
+    adminDashboard: baseJsDir + 'admin.js',
     // super_admin: ['babel-polyfill','./ui/static/js/super_admin.js'],
     signup: baseJsDir + 'signup.js',
     userDashboard: baseJsDir + 'user_dashboard.js',
