@@ -22,12 +22,12 @@
     </div>
     <div class="content">
         <p class="welcome"> Sign In </p>
-        <form class="signup" action="" method="post">
+        <form id="signin-form" class="signin" action="" method="post">
             <p>Please fill in this form to sign in.</p>
 
             <!-- email -->
             <label for="email"><b>Email Address</b></label>
-            <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+            <input class="required" type="email" name="email" id="email" placeholder="Enter your email address" required>
 
             <!-- password -->
             <label for="password"><b>Password</b></label>
@@ -35,7 +35,7 @@
 
             
             <!-- submit -->
-            <button type="submit" class="btn-signup">Sign In</button>
+            <button type="submit" class="btn-signup" id="btn-signin">Sign In</button>
         </form>
         <br>
     </div>
@@ -44,7 +44,8 @@
         <p>Maintenance Tracker © 2018 John Musiu</p>
     </footer>
     
-    <script src="../static/js/script.js"></script>
+    <script src="../static/js/build/base.js"></script>
+    <script src="../static/js/build/signin.js"></script>
 
 </body>
 </html>

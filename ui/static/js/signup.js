@@ -3,12 +3,11 @@ import { baseUrl, toast } from './helpers'
 // funtion to signup user
 function signup (e) {
   e.preventDefault()
-  const endpoint = '/admin'
+  const endpoint = '/auth/register'
 
   fetch(baseUrl + endpoint, {
     headers: {
-      'content-type': 'application/json',
-      'access-token': localStorage.getItem('access-token')
+      'content-type': 'application/json'
     },
     mode: 'cors',
     method: 'POST',
@@ -22,17 +21,15 @@ function signup (e) {
   }).then(function (response) { return response.json() })
     .then(function (res) {
       console.log(res.message)
-      if (res.message === 'Admin created successfully') {
+      if (res.message === 'Registration successfull') {
         toast('success', res.message)
-        // location.reload()
-      } else if (res.message === 'Email address already registered under another account') {
-        toast('error', res.message)
-      } else {
         localStorage.setItem('message', res['message'])
         location.href = 'signin.html'
+      } else {
+        toast('error', res.message)
       }
     })
 }
 
 // onclick listenerss for signup request
-document.getElementById('btn-signup-admin').addEventListener('click', signup)
+document.getElementById('btn-signup').addEventListener('click', signup)

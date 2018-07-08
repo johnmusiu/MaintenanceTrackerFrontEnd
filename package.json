@@ -1,0 +1,40 @@
+{
+  "name": "maintenancetrackerfrontend",
+  "version": "1.0.0",
+  "description": "Frontend to consume Maintenance-Tracker API",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --output-public-path=/ui/static/js/build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnmusiu/MaintenanceTrackerFrontEnd.git"
+  },
+  "author": "John Musiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnmusiu/MaintenanceTrackerFrontEnd/issues"
+  },
+  "homepage": "https://github.com/johnmusiu/MaintenanceTrackerFrontEnd#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "idempotent-babel-polyfill": "^6.26.0"
+  }
+}
