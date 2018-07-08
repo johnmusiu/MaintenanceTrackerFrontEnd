@@ -7,7 +7,7 @@ module.exports = {
     base: baseJsDir + 'base.js',
     slide_show: baseJsDir + 'slide_show.js',
     adminDashboard: baseJsDir + 'admin.js',
-    // super_admin: ['babel-polyfill','./ui/static/js/super_admin.js'],
+    superAdmin: baseJsDir + 'super_admin.js',
     signup: baseJsDir + 'signup.js',
     userDashboard: baseJsDir + 'user_dashboard.js',
     signin: baseJsDir + 'signin.js'
