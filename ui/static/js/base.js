@@ -1,4 +1,4 @@
-const baseUrl = 'http://127.0.0.1:5000/api/v2'
+const baseUrl = 'https://gentle-sands-32555.herokuapp.com/api/v2'
 
 function viewEditUserRequest () {
   // get table on page by htmltag, 0 gets obj of the first table in the page

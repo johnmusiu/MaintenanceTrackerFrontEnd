@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.toast = toast;\nvar baseUrl = exports.baseUrl = 'http://127.0.0.1:5000/api/v2';\n\nfunction toast(type, message) {\n  var toastMessage = document.createElement('P');\n  if (type === 'error') {\n    toastMessage.classList.add('error');\n  } else if (type === 'success') {\n    toastMessage.classList.add('success');\n  } else {\n    toastMessage.classList.add('info');\n  }\n\n  var response = document.createTextNode(message);\n\n  toastMessage.appendChild(response);\n  document.body.appendChild(toastMessage);\n}\n\n//# sourceURL=webpack:///./ui/static/js/helpers.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.toast = toast;\nvar baseUrl = exports.baseUrl = 'https://gentle-sands-32555.herokuapp.com/api/v2';\n\nfunction toast(type, message) {\n  var toastMessage = document.createElement('P');\n  if (type === 'error') {\n    toastMessage.classList.add('error');\n  } else if (type === 'success') {\n    toastMessage.classList.add('success');\n  } else {\n    toastMessage.classList.add('info');\n  }\n\n  var response = document.createTextNode(message);\n\n  toastMessage.appendChild(response);\n  document.body.appendChild(toastMessage);\n\n  // After 5 seconds, remove the show class from DIV\n  setTimeout(function () {\n    toastMessage.className = toastMessage.className.replace('error', 'hide');\n    toastMessage.className = toastMessage.className.replace('success', 'hide');\n    toastMessage.className = toastMessage.className.replace('info', 'hide');\n  }, 6000);\n}\n\n//# sourceURL=webpack:///./ui/static/js/helpers.js?");
 
 /***/ }),
 

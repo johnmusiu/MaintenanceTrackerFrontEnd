@@ -373,56 +373,57 @@ td.open-icon{
 }
 /* end details row styling */
 
-/* start error styling toast*/
+/* start styling toasts */
 p.error{
     color: white;
-    font-weight: bold;
     background: rgb(126, 22, 22);
-    z-index: 2;
-    display: block;
-    width: 35%;
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute; 
-    top: 10%; 
-    right: 15%;
-
 }
-/* end error styling toast */
 
-/* start success styling toast*/
 p.success{
     color: white;
-    font-weight: bold;
     background: rgb(109, 158, 64);
-    z-index: 2;
-    display: block;
-    width: 35%;
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute; 
-    top: 10%; 
-    right: 15%;
-
 }
-/* end success styling toast */
 
-/* start info styling toast*/
 p.info{
     color:black;
-    font-weight: bold;
     background: rgb(244, 252, 201);
+}
+
+p.error, p.success, p.info{
+    font-weight: bold;
     z-index: 2;
     display: block;
     width: 35%;
     padding: 10px;
     border-radius: 10px;
-    position: absolute; 
+    position: fixed; 
     top: 10%; 
     right: 15%;
-
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
+    animation: fadein 0.5s, fadeout 0.5s 5.5s;
 }
-/* end info toast styling */
+
+@-webkit-keyframes fadein {
+    from {right: 0; opacity: 0;} 
+    to {right: 15%; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {right: 0; opacity: 0;}
+    to {right: 15%; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {right: 15%; opacity: 1;} 
+    to {right: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {right: 15%; opacity: 1;} 
+    to {right: 0; opacity: 0;}
+}
+
+/* end styling toasts */
 
 input:invalid{
     content:"*";

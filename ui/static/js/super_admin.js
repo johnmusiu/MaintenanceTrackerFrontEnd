@@ -25,11 +25,12 @@ function signup (e) {
       if (res.message === 'Admin created successfully') {
         toast('success', res.message)
         // location.reload()
-      } else if (res.message === 'Email address already registered under another account') {
-        toast('error', res.message)
-      } else {
+      } else if (res.message === 'Token is missing! Login to get token.' ||
+      res.message === 'Token is invalid!') {
         localStorage.setItem('message', res['message'])
         location.href = 'signin.html'
+      } else {
+        toast('error', res.message)
       }
     })
 }
