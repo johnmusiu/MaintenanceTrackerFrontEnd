@@ -1,1 +1,1 @@
-<?php include_once("ui/templates/index.html"); ?>
+<?php header("location: ui/templates/index.html"); ?>
