@@ -1,4 +1,5 @@
-const baseUrl = 'https://gentle-sands-32555.herokuapp.com/api/v2'
+// const baseUrl = 'https://gentle-sands-32555.herokuapp.com/api/v2'
+const baseUrl = 'http://127.0.0.1:5000/api/v2'
 
 function viewEditUserRequest () {
   // get table on page by htmltag, 0 gets obj of the first table in the page
@@ -63,7 +64,6 @@ function toggleRequestDetails () {
 // create row for request description
 function insertDescRow (table, rows, rowIndex) {
   const row = rows[rowIndex]
-  console.log((rowIndex + 1) + ' ' + rows.length)
   // if not last row, check if row should be added or deleted
   if (rows.length !== rowIndex + 1) {
     const nextRow = rows[rowIndex + 1]
@@ -100,7 +100,7 @@ function createRow (table, rowIndex, row) {
   tdataDetails.innerHTML += `<p> Type: <strong>${rowData[3].innerText}</strong> </p>`
   tdataDetails.innerHTML += `<p> Time requested: <strong>${rowData[5].innerText}</strong> </p>`
   tdataDetails.innerHTML += `<p> Description: <strong>${rowData[4].innerText}</strong> </p>`
-  tdataDetails.innerHTML += `<p> Status: <strong>${rowData[7].innerText}</strong></p>`
+  tdataDetails.innerHTML += `<p> Status: <strong>${rowData[6].innerText}</strong></p>`
 }
 
 function action (type) {

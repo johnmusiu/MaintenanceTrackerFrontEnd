@@ -1,27 +1,28 @@
 html{
-    margin-right: 15%;
-    margin-left: 15%;    
+    margin-right: 5%;
+    margin-left: 5%;    
 }
 
 body{
-    background-image: url("../images/5394598-wallpaper.jpg");
+    /* background-image: url("../images/5394598-wallpaper.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-    margin-top: 100px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 footer{
-    color: aliceblue;
+    color: black;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: white;
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     bottom: 0px;
     overflow: hidden;
-    width: 70%;
+    width: 88.5%;
     padding: 2px;
 }
 
@@ -36,13 +37,13 @@ footer{
 }
 /* navigation bar styling */
 .topnav{
-    background-color: rgba(3, 3, 3, 0.8);
+    background-color: white;
     overflow: hidden;
     padding-top: 15px;
     padding-bottom: 15px;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    width: 70%; /* 70% of Full width */
+    width: 88.5%; /* 70% of Full width */
 }
 
 .right{
@@ -53,18 +54,17 @@ footer{
 .topnav a{
     display: inline-block;
     margin-left: 10px;
-    color: whitesmoke;
+    color: blue;
     text-align: center;
     padding: 14px;
     text-decoration: none;
     font-size: 1.25em;
-    border: 1px solid white;
+    border: 1px solid burlywood;
     
 }
 
 /* welcome text styling */
 .welcome{
-    /* font-style: oblique; */
     font-size: 2.5em;
     text-align: center;
 }
@@ -96,8 +96,8 @@ footer{
 
 /* selected link */
 .topnav a.active {
-    color: tomato;
-    background-color: black;
+    color: rgb(129, 66, 55);
+    background-color: rgb(230, 231, 164);
 }
 
 /* mouse over link */
@@ -434,4 +434,26 @@ input:invalid{
 .hide{
     visibility: hidden;
     display: none;
+}
+
+.fa-check{
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 3px;
+    width: 100px;
+    margin: 3px;
+}
+
+.fa-times{
+    background-color: rgb(248, 86, 86);
+    color: white;
+    border-radius: 3px;
+    width: 100px;
+    margin: 3px;
+}
+
+.fa-eye{
+    border-radius: 3px;
+    margin: 3px;
+    width: 100px;
 }

@@ -1,4 +1,5 @@
-export const baseUrl = 'https://gentle-sands-32555.herokuapp.com/api/v2'
+// export const baseUrl = 'https://gentle-sands-32555.herokuapp.com/api/v2'
+export const baseUrl = 'http://127.0.0.1:5000/api/v2'
 
 export function toast (type, message) {
   const toastMessage = document.createElement('P')

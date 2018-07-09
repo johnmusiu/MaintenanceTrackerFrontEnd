@@ -51,7 +51,7 @@ function insertRequest (request) {
   const actions = newRow.insertCell(7)
 
   id.innerHTML = request.request_id
-  userId.innerHTML = request.user_id
+  userId.innerHTML = request.created_by
   title.innerHTML = request.title
   description.innerHTML = request.description
   type.innerHTML = request.type
@@ -62,15 +62,36 @@ function insertRequest (request) {
 
 function requestActions (status, id) {
   if (status === 'open') {
-    return `<button class="fa fa-check" onclick="action('approve')"></button>
-    <button class="fa fa-times" onclick="action('disapprove')"></button>
-    <button class="fa fa-eye" onclick="toggleRequestDetails()"></button>`
+    return `<button class="fa fa-check" onclick="action('approve')"> Approve</button>
+    <button class="fa fa-times" onclick="action('disapprove')"> Disapprove</button>
+    <button class="fa fa-eye" onclick="toggleRequestDetails()"> View</button>`
   } else if (status === 'pending') {
-    return `<button onclick="action('resolve')">Resolve</button>
-    <button class="fa fa-eye" onclick="toggleRequestDetails()"></button>`
+    return `<button class="fa fa-check" onclick="action('resolve')">Resolve</button>
+    <button class="fa fa-eye" onclick="toggleRequestDetails()">View</button>`
   } else {
-    return `<button class="fa fa-eye" onclick="toggleRequestDetails()"></button>`
+    return `<button class="fa fa-eye" onclick="toggleRequestDetails()">View</button>`
   }
 }
 
+function search () {
+  let input = document.getElementById('search').value.toUpperCase()
+  let tbody = document.getElementsByTagName('table')[0].tBodies[0]
+  let trows = tbody.getElementsByTagName('tr')
+  for (let index = 0; index < trows.length; index++) {
+    let tr = trows[index].getElementsByTagName('td')
+    for (let i = 0; i < tr.length; i++) {
+      let td = tr[i]
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(input) === -1) {
+          trows[index].style.display = 'none'
+        } else {
+          trows[index].style.display = ''
+          break
+        }
+      }
+    }
+  }
+}
 getRequests()
+
+document.getElementById('search').addEventListener('keyup', search)
