@@ -105,9 +105,7 @@ function toggleRequestForm () {
 function populateReqTable (userRequests) {
   const table = document.getElementsByTagName('tbody')[0]
   table.innerHTML = ''
-  Object.values(userRequests).forEach(request => {
-    insertRequest(request)
-  })
+  Object.values(userRequests).map(insertRequest)
 }
 
 function insertRequest (request) {

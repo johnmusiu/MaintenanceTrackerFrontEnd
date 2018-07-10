@@ -31,9 +31,7 @@ function getRequests () {
 }
 
 function populateReqTable (allRequests) {
-  Object.values(allRequests).forEach(request => {
-    insertRequest(request)
-  })
+  Object.values(allRequests).map(insertRequest)
 }
 
 function insertRequest (request) {

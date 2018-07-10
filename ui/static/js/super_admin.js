@@ -31,6 +31,7 @@ function signup (e) {
         location.href = 'signin.html'
       } else {
         toast('error', res.message)
+        if (res.error) toast('error', res.error)
       }
     })
 }
